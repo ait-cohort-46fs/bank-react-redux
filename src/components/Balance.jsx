@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useSyncExternalStore } from 'react'
+import {store} from '../configureSrore/store';
 
-const Balance = ({ balance }) => {
+const Balance = () => {
+
+    const {balance} = useSyncExternalStore(store.subscribe, store.getState)
+
     return (
-        <div>
-            <h1>Iron Bank of Braavos</h1>
-            <h2>Balance = {balance}</h2>
+        <div className='text-center text-uppercase'>
+            <h1 className='text-[gold] font-bold text-8xl'>Iron Bank of Braavos</h1>
+            <h2 className='text-[firebrick] text-7xl'>Balance = {balance}</h2>
         </div>
     )
 }
