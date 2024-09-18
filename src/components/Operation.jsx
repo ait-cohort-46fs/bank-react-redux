@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { store } from '../configureSrore/store';
-import { withdraw, deposit } from '../actions/accountActions';
+import { useDispatch } from 'react-redux';
+import { deposit, withdraw } from '../actions/accountActions';
 
 const Operation = () => {
     const [sum, setSum] = useState(1);
+    const dispatch = useDispatch();
 
     return (
         <div className='flex justify-center'>
             <button
                 className='bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg text-lg py-2 px-4'
-                onClick={() => store.dispatch(withdraw(sum))}
+                onClick={() => dispatch(withdraw(sum))}
             >Withdraw
             </button>
             <input
@@ -20,7 +21,7 @@ const Operation = () => {
             />
             <button
                 className='bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg text-lg py-2 px-4'
-                onClick={() => store.dispatch(deposit(sum))}
+                onClick={() => dispatch(deposit(sum))}
             >Deposit
             </button>
         </div>

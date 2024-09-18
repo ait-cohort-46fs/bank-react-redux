@@ -1,9 +1,9 @@
-import React, { useSyncExternalStore } from 'react'
-import {store} from '../configureSrore/store';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Balance = () => {
 
-    const {balance} = useSyncExternalStore(store.subscribe, store.getState)
+    const balance = useSelector(state => state.balance);
 
     return (
         <div className='text-center text-uppercase'>
